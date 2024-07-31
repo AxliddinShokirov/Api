@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from Goods import models
 
@@ -92,26 +94,30 @@ def CreateOrder(request, id):
 
 def wishList(request):
     wish_list = models.WishList.objects.filter(user=request.user)
+    data = []
+    for wish in wish_list:
+        a = models.ProductImg.objects.get(product = wish.product)
+        data.append(a)
     context = {}
-    context['wishlist']=wish_list
+    combined = zip(wish_list, data)
+    context['combined']= combined
+
     return render(request, 'user/wishList.html', context)
 
 
-from django.shortcuts import get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
 
 @login_required
 def addOrDeleteWishList(request, id):
     product = get_object_or_404(models.Product, id=id)
+
     data, created = models.WishList.objects.get_or_create(
         product=product,
-        user=request.user
+        user=request.user,
     )
     if not created:
         data.delete()
     
-    # Redirect to the previous page or a specific URL
-    next_url = request.META.get('HTTP_REFERER', 'shop')  # Default to 'shop' if no referrer
+    next_url = request.META.get('HTTP_REFERER', 'shop')  
     return redirect(next_url)
 
 

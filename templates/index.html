@@ -195,15 +195,7 @@
                             <img src="{{ product.img.url }}" alt="Product Image" class="card-img-top">
                         </a>
                         <div class="actions-btn">
-                            {% if product not in wishlist %}
-                                <a href="{% url 'addOrDelete' product.id %}" class="icon-btn">
-                                    <i class="fal fa-heart"></i> <!-- Empty heart icon -->
-                                </a>
-                            {% else %}
-                                <a href="{% url 'addOrDelete' product.id %}" class="icon-btn">
-                                    <i class="fa-solid fa-heart" style="color: #f70202;"></i> <!-- Filled heart icon -->
-                                </a>
-                            {% endif %}
+                                <a href="{% url 'addOrDelete' product.id %}" class="icon-btn"><i class="fal fa-heart"></i></a>
                             <a href="{% url 'addToCart' product.id %}" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
                         </div>
                     </div>
@@ -258,7 +250,6 @@
         </div>
     </div>
       
-    
     
 
     <section class="position-relative space-top space-md-bottom" style="padding-top: 40px;">
