@@ -13,7 +13,10 @@ def myCart(request):
 
 def addProductToCart(request, id):
     product_id = id
-    quantity = int(request.POST['quantity'])  # Convert quantity to integer
+    if request.method == 'POST':
+       quantity = int(request.POST['quantity']) 
+    else:
+        quantity = 1
     product = models.Product.objects.get(id=product_id)
     cart, _ = models.Cart.objects.get_or_create(author=request.user, is_active=True)
     try:
@@ -24,7 +27,7 @@ def addProductToCart(request, id):
         cart_product = models.CartProduct.objects.create(
             product=product, 
             cart=cart,
-            quantity=quantity
+            quantity= quantity
         )
     if quantity and product.price:
         cart_product.total_price = quantity * float(product.price)
@@ -41,6 +44,9 @@ def substruct(request, id):
     product_cart.save()
     if not product_cart.quantity:
         product_cart.delete()
+    if quantity and product_cart.product.price:
+        product_cart.total_price = quantity * float(product_cart.product.price)
+        product_cart.save()
     return redirect('mycart')
 
 
@@ -82,3 +88,75 @@ def CreateOrder(request, id):
         cart.save()
         return render(request, 'user/order.html')
     return redirect('mycart')
+
+
+def wishList(request):
+    wish_list = models.WishList.objects.filter(user=request.user)
+    context = {}
+    context['wishlist']=wish_list
+    return render(request, 'user/wishList.html', context)
+
+
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def addOrDeleteWishList(request, id):
+    product = get_object_or_404(models.Product, id=id)
+    data, created = models.WishList.objects.get_or_create(
+        product=product,
+        user=request.user
+    )
+    if not created:
+        data.delete()
+    
+    # Redirect to the previous page or a specific URL
+    next_url = request.META.get('HTTP_REFERER', 'shop')  # Default to 'shop' if no referrer
+    return redirect(next_url)
+
+
+def userSearch(request):
+    q = request.GET.get('q')
+    if q:
+        result = models.Product.objects.filter(name=q)
+        return render(request, 'user/query.html', {'result':result})
+    return redirect('/')
+
+"""
+return redirect(request.path)
+
+
+
+Product.objects.filter(
+    created_at:date = date,
+    created_at:date__gt = date,
+    created_at:date__gte = date,
+    created_at:date__lt = date,
+    created_at:date__lte = date,
+)
+
+Product.objects.filter(
+    created_at:time = time
+)
+
+Product.objects.filter(
+    created_at:date_time = date_time
+)
+
+Product.objects.filter(
+    created_at:date_time__year = 2024,
+    region_name__icontains = 'a'
+)
+
+# 12, 15, 15, 10
+# Yan, Fev, Mar, Apr, May, Iy, ... Dec
+[10,11,12,13,15,16,17,123,432,123]
+[Yan, Fev, Mar, Apr, May, Iy, iyul, avg, sen, okt, Dec]
+
+product = Product.objects.all()
+paginator = Paginator(product, per_page=3)
+product = [1,2,3,4,5,6,7,8,9,10]
+paginator = [[1,2,3]]
+paginator.object_list -> 4
+
+"""

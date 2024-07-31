@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <!--==============================
-        Header Area
-    ==============================-->
+
 
     <style>
         .menu-style2 > ul > li > a {
@@ -14,6 +12,7 @@
             padding: 20px;
         }
     </style>
+
     <header class="header-wrapper header-layout5">
         
         <div class="menu-area" >
@@ -100,7 +99,7 @@
                     <div class="col-auto d-none d-sm-block">
                         <div class="header-buttons">
                             <button type="button" class="searchBoxTggler"><i class="far fa-search"></i></button>
-                            <a href="wishlist.html"><i class="fal fa-heart"></i></a>
+                            <a href="{% url 'wishList' %}"><i class="fal fa-heart"></i></a>
                             <button class="sideMenuToggler has-badge" type="button"><i class="fal fa-shopping-cart"></i><span class="badge">0</span></button>
                             {% if request.user.is_authenticated%}
                             <a href="#">{{request.user.username}}</a>
@@ -116,9 +115,8 @@
             </div>
         </div>
     </header>
-    <!--==============================
-      Hero Area
-    ==============================-->
+    
+    
     <div class="  ">
         
         <div class="vs-hero-carousel hero-layout6" data-globalbgimage="{% static 'assets/img/nature.jpg' %}" data-height="810" data-container="1900" data-slidertype="responsive">
@@ -154,12 +152,11 @@
 
         </div>
     </div>
-    <!--==============================
-    Categories Area
-    ==============================-->
+    
+    
     <section class="space-top" style="padding-top: 30px;">
         <div class="container">
-            <span class="sub-title4" style="    font-size: 60px; font-weight: 700; line-height: 1.1;">Categories</span>
+            <span class="sub-title4" style="font-size: 60px; font-weight: 700; line-height: 1.1;">Categories</span>
             <div class="row vs-carousel" data-slide-show="3" id="catboxSlide4645">
                 {% for category in categories %}
                 <div class="col-xl-4">
@@ -186,659 +183,84 @@
             </div>
         </div>
     </section>
-
-
-    <section class="sec-bg3 vs-shop-wrapper" style="padding-top: 30px;" data-bg-src="{% static 'assets/img/shape/bg-00778.png' %}">
-        <div class="section-title text-center" style="margin-bottom: 30px;">
-            <div class="sec-icon"><img src="{% static 'assets/img/icons/sec-icon-2.png' %}" alt="icon"></div>
-            <span class="sub-title4">Latest Arrivals</span>
-            <h2 class="sec-title3">Feature Products</h2>
-        </div>
-        <div class="container position-relative">
-            <div class="filter-menu2 vs-slideTab" data-asnavfor="#shopSlide8440">
-                <button class="tab-btn active" data-bs-toggle="tooltip" data-bs-placement="left" title="Best Seller">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-2.png' %}" alt="image" class="bg-1">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-1.png' %}" alt="image" class="bg-2">
-                    <i class="flaticon-salad"></i> </button>
-                <button class="tab-btn " data-bs-toggle="tooltip" data-bs-placement="left" title="Popular">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-2.png' %}" alt="image" class="bg-1">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-1.png' %}" alt="image" class="bg-2">
-                    <i class="flaticon-salvsadbox-1"></i> </button>
-                <button class="tab-btn " data-bs-toggle="tooltip" data-bs-placement="left" title="Trend">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-2.png' %}" alt="image" class="bg-1">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-1.png' %}" alt="image" class="bg-2">
-                    <i class="flaticon-vegetables"></i> </button>
-                <button class="tab-btn " data-bs-toggle="tooltip" data-bs-placement="left" title="Season">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-2.png' %}" alt="image" class="bg-1">
-                    <img src="{% static 'assets/img/shape/filter-icon-bg-1-1.png' %}" alt="image" class="bg-2">
-                    <i class="flaticon-healthy-food"></i> </button>
-            </div>
-            <div class="vs-carousel" data-slide-show="1" data-lg-slide-show="1" data-md-slide-show="1" data-sm-slide-show="1" data-fade="true" id="shopSlide8440">
-
-                <div id="BestSeller">
-                    <div class="row gx-2px justify-content-center">
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-1.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag2">New</span><span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-1.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Apple Juice</a></h4>
-                                    <span class="price"><strong>$18.00</strong><del>$47.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-2.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-2.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Clark’s Nutrition</a></h4>
-                                    <span class="price"><strong>$45.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-3.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag2">New</span><span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-3.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Cravings</a></h4>
-                                    <span class="price"><strong>$78.00</strong><del>$66.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-4.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-4.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Meats</a></h4>
-                                    <span class="price"><strong>$15.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-5.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-5.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Untouched Organic</a></h4>
-                                    <span class="price"><strong>$56.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-6.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-6.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Balance Bearing</a></h4>
-                                    <span class="price"><strong>$41.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-7.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-7.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Soulfood</a></h4>
-                                    <span class="price"><strong>$36.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-8.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-8.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Conditions</a></h4>
-                                    <span class="price"><strong>$49.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="popular">
-                    <div class="row gx-2px justify-content-center">
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-9.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-9.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Grateful Organic</a></h4>
-                                    <span class="price"><strong>$78.00</strong><del>$88.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-10.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag2">New</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-10.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Root For Organics</a></h4>
-                                    <span class="price"><strong>$96.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-11.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-11.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Elemental Organic</a></h4>
-                                    <span class="price"><strong>$75.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-12.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-12.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Compliment</a></h4>
-                                    <span class="price"><strong>$23.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-13.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-13.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Careful Compounds</a></h4>
-                                    <span class="price"><strong>$63.00</strong><del>$99.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-14.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-14.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Delights</a></h4>
-                                    <span class="price"><strong>$78.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-15.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag2">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-15.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Madam Nature</a></h4>
-                                    <span class="price"><strong>$15.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-16.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-16.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Nature’S Aroma</a></h4>
-                                    <span class="price"><strong>$96.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="bestSeller">
-                    <div class="row gx-2px justify-content-center">
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-17.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-17.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Choice</a></h4>
-                                    <span class="price"><strong>$79.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-18.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-18.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">The Nitty-Gritty</a></h4>
-                                    <span class="price"><strong>$79.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-19.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-19.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Nature’S Own Organic</a></h4>
-                                    <span class="price"><strong>$63.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-20.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-20.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Love Light Organics</a></h4>
-                                    <span class="price"><strong>$76.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-21.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-21.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Double Nature</a></h4>
-                                    <span class="price"><strong>$39.00</strong><del>$59.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-22.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag2">New</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-22.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Straight The Firm</a></h4>
-                                    <span class="price"><strong>$19.00</strong><del>$99.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-23.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag1">Hot</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-23.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">The Right Choice</a></h4>
-                                    <span class="price"><strong>$78.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-24.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-24.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Prime Organics Cleanate</a></h4>
-                                    <span class="price"><strong>$22.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="season">
-                    <div class="row gx-2px justify-content-center">
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-25.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-25.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Goodness Organics</a></h4>
-                                    <span class="price"><strong>$63.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-26.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-26.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic Seed</a></h4>
-                                    <span class="price"><strong>$39.00</strong><del>$49.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-27.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-27.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Double Organics</a></h4>
-                                    <span class="price"><strong>$79.00</strong><del>$99.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-28.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-28.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">The Organic Base</a></h4>
-                                    <span class="price"><strong>$18.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-29.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-29.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">The Organic Body</a></h4>
-                                    <span class="price"><strong>$75.00</strong><del>$20.00</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-30.png' %}" alt="Product Image" class="w-100"></a>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-30.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Organic BioKitchen</a></h4>
-                                    <span class="price"><strong>$96.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-31.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag3">Sale</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-31.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Earthbar Focus Food</a></h4>
-                                    <span class="price"><strong>$75.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="vs-product-box3 ">
-                                <div class="product-img">
-                                    <a href="shop-details.html"><img src="{% static 'assets/img/shop/product-3-32.png' %}" alt="Product Image" class="w-100"></a>
-                                    <span class="product-tag1">Hot</span>
-                                </div>
-                                <div class="actions-btn">
-                                    <a href="{% static 'assets/img/shop/product-3-32.png' %}" class="icon-btn popup-image"><i class="far fa-search"></i></a>
-                                    <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
-                                    <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
-                                    </div>
-                                    <h4 class="product-title"><a href="shop-details.html">Amtaste Farmgain Micro</a></h4>
-                                    <span class="price"><strong>$56.00</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-btn">
-                <a href="shop.html" class="vs-btn style3">All Product<i class="fas fa-angle-right"></i></a>
-            </div>
-        </div>
-    </section>
     
-    <!--==============================
-    Popular Package Box
-    ==============================-->
+
+    <div id="BestSeller" class="container">
+        <div class="row gx-2 justify-content-center">
+            {% for product in products %}
+            <div class="col-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card vs-product-box3 h-100">
+                    <div class="product-img position-relative">
+                        <a href="shop-details.html">
+                            <img src="{{ product.img.url }}" alt="Product Image" class="card-img-top">
+                        </a>
+                        <div class="actions-btn">
+                            {% if product not in wishlist %}
+                                <a href="{% url 'addOrDelete' product.id %}" class="icon-btn">
+                                    <i class="fal fa-heart"></i> <!-- Empty heart icon -->
+                                </a>
+                            {% else %}
+                                <a href="{% url 'addOrDelete' product.id %}" class="icon-btn">
+                                    <i class="fa-solid fa-heart" style="color: #f70202;"></i> <!-- Filled heart icon -->
+                                </a>
+                            {% endif %}
+                            <a href="{% url 'addToCart' product.id %}" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-rating-box mb-2">
+                            5.0
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span>
+                            </div>
+                        </div>
+                        <h5 class="product-title card-title"><a href="shop-details.html">{{ product.product.name }}</a></h5>
+                        <span class="price"><strong>${{ product.product.price }}</strong></span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-end">
+                {% if products.paginator.num_pages > 1 %}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        {% if products.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ products.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% for num in products.paginator.page_range %}
+                        {% if num == products.number %}
+                        <li class="page-item active">
+                            <a class="page-link" href="#">{{ num }}</a>
+                        </li>
+                        {% elif num > products.number|add:'-2' and num < products.number|add:'2' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if products.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ products.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+      
+    
+    
+
     <section class="position-relative space-top space-md-bottom" style="padding-top: 40px;">
         <div class="sec-bg4" data-bg-src="assets/img/shape/bg-00779.png"></div>
         <div class="container">
@@ -888,9 +310,8 @@
             </div>
         </div>
     </section>
-    <!--==============================
-        Blog Area
-    ==============================-->
+    
+    
     <section class="vs-blog-wrapper space-top space-md-bottom" style="padding: 40px;">
         <div class="container">
             <div class="section-title text-center">
@@ -978,17 +399,8 @@
             </div>
         </div>
     </section>
-    <!--==============================
-        Blog Area
-    ==============================-->
 
-    <!--==============================
-    Banner Area
-    ==============================-->
-
-    <!--==============================
-			Footer Area
-	==============================-->
+    
     <footer class="footer-wrapper footer-layout2" data-bg-src="{% static 'assets/img/shape/footer-5-1.jpg' %}" style="padding-top: 10px;">
         <div class="container">
             <div class="widget-area" style="padding-top: 30px; padding-bottom: 30px;">

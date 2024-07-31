@@ -1,0 +1,9 @@
+.product-img img {
+  width: 100%;
+  height: 300px; /* Set to your desired height */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+.icon-btn i.fa-solid.fa-heart {
+  color: #f70202 !important;
+}
