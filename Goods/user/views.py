@@ -5,8 +5,8 @@ from Goods import models
 
 
 def myCart(request):
-    cart = models.Cart.objects.get(author=request.user, is_active=True)
-    cartProduct = models.CartProduct.objects.filter(cart= cart)
+    cart = models.Cart.objects.get_or_create(author=request.user, is_active=True)
+    cartProduct = models.CartProduct.objects.filter(cart=cart)
     context = {}
     context['cart']=cart
     context['cartpro']=cartProduct

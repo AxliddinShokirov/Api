@@ -30,7 +30,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
+    
+    def is_like(self, user):
+        object = WishList.objects.filter(product = self, user = user)
+        return object
+        
 
 class ProductImg(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
@@ -114,3 +118,16 @@ class WishList(models.Model):
 
     def __str__(self):
         return f"{self.user.username}, {self.product.name}"
+     
+    
+class Info(models.Model):
+    email = models.EmailField()
+    number = models.CharField(max_length=15)
+    address = models.CharField(max_length=255)
+
+
+class Contact (models.Model):
+    whatsapp = models.CharField(max_length=255)
+    twitter = models.CharField(max_length=255)
+    facebook = models.CharField(max_length=255)
+    telegram = models.CharField(max_length=255)
