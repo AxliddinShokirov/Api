@@ -20,12 +20,14 @@ def main(request):
     category = models.Category.objects.all()
     last_img = models.ProductImg.objects.all()
     wishlist = models.WishList.objects.all()
+    contacts = models.Contact.objects.all()
     
     context = {}
     context['banners'] = banners
     context['categories'] = category
     context['products'] = paginator_page(last_img, 8 , request)
     context['wishlist'] = wishlist
+    context['contacts'] = contacts
 
     return render(request, 'index.html', context)
 

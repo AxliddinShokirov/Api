@@ -27,6 +27,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     description = models.TextField()
+    is_liked = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -131,3 +132,4 @@ class Contact (models.Model):
     twitter = models.CharField(max_length=255)
     facebook = models.CharField(max_length=255)
     telegram = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)

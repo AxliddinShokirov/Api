@@ -50,14 +50,14 @@
         border-radius: 50%;
     }
     .bg-green-image {
-    background-image: url('{% static "assets/img/shop/shop_bg1.jpg" %}');
+    background-image: url('{{ banners.img.url }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Optional */
 }
 .vs-hero-carousel.hero-layout6 {
-    background-image: url('{% static "assets/img/shop/online_shop.png" %}');
+    background-image: url('https://avatars.mds.yandex.net/i?id=039bae0024cdb3537fe4d6b174529264c4fd54be36fbdbff-12372806-images-thumbs&n=13');
     background-size: cover; /* Adjusts the image size to cover the container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -95,6 +95,9 @@
 
             <!-- User Actions -->
             <div class="col-auto">
+                <nav class="main-menu mobile-menu-active menu-style2">
+                <ul> <li class="menu-item-has-children">
+                    <a<a href="blog.html">Blog</a>
                 <ul class="nav list-unstyled d-flex mb-0">
                     {% if request.user.is_authenticated %}
                     <li class="nav-item me-2">
@@ -115,6 +118,9 @@
                     </li>
                     {% endif %}
                 </ul>
+                </li>
+            </ul>
+            
             </div>
         </div>
     </div>
@@ -128,16 +134,18 @@
         <div class="ls-slide mt-3" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
             <p style="top:405px; left:375px; font-weight:700; background-color:#393636; background-size:inherit; background-position:inherit; font-size:65px; color:#fcd55c; font-family:'Advent Pro', sans-serif;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint;">
                 {{ banner.title }}
+                
+                <p style="top:365px; left:375px; font-weight:700; background-size:inherit; background-position:inherit; font-size:35px; font-family:Amatic SC; color:#ffffff; letter-spacing:1px;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:-100; durationin:1500; delayin:800; easingin:easeOutQuint;">{{banner.sub_title}}</p>
             </p>
             
             {% if request.user.is_staff %}
-            <div style="top:611px; left:375px; background-size:inherit; background-position:inherit;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:100; durationin:1500; delayin:800; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint;">
+            <!-- <div style="top:611px; left:375px; background-size:inherit; background-position:inherit;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:100; durationin:1500; delayin:800; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint;">
                 <a href="{% url 'listBanner' %}" class="vs-btn style5 ls-btn">Banner list<i class="far fa-angle-right"></i></a>
-            </div>
-            {% endif %}
+            </div> -->
+            <!-- {% endif %} -->
             <div style="top:611px; left:375px; background-size:inherit; background-position:inherit;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:100; durationin:1500; delayin:800; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint;">
             </div>
-            <img width="600" height="500" src="{{ banner.img.url }}" class="ls-l ls-hide-tablet ls-hide-phone" alt="image" style="top:215px; left:969px; background-size:inherit; background-position:inherit;">
+            <img  width="600" height="600" src="{{ banner.img.url }}" class="ls-l ls-hide-tablet ls-hide-phone" alt="image" style="border-radius: 50%; top:215px; left:969px; background-size:inherit; background-position:inherit;">
 
         </div>
         {% endfor %}
@@ -151,16 +159,16 @@
             <div id="catboxCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     {% for category in categories %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <!-- <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-3"> -->
                                 <div class="card h-100 shadow-sm">
                                     <img src="{{category.img.url}}" class="card-img-top" alt="Category image" style="height: 300px; object-fit: cover;">
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="shop.html" class="text-decoration-none text-dark">{{category.name}}</a></h5>
                                         <p class="card-text">{{category.title}}</p>
                                     </div>
-                                </div>
+                                <!-- </div>
                             </div>
                             {% if forloop.counter|divisibleby:3 and not forloop.last %}
                         </div><div class="carousel-item">
@@ -168,7 +176,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endfor %} -->
                 </div>
                 <a class="carousel-control-prev" href="#catboxCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -255,24 +263,26 @@
     </div>
 
     
-    <footer class="footer-wrapper bg-green-image text-white py-4">
+    <footer class="footer-wrapper bg-green-image text-white py-4" style="background-color: burlywood;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-info">
                         <a href="#"><img src="{% static 'assets/img/logo.png' %}" alt="Brand logo" class="img-fluid mb-3"></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, placeat.</p>
+                        {%for contact in contacts%}
                         <div class="mt-4">
                             <a href="#" class="d-block mb-2 text-white"><i class="fas fa-map-marker-alt"></i> 123 Street, City</a>
-                            <a href="#" class="d-block mb-2 text-white"><i class="fas fa-phone"></i> +123 456 7890</a>
+                            <a href="#" class="d-block mb-2 text-white"><i class="fas fa-phone"></i>{{contact.phone}}</a>
                             <a href="#" class="d-block text-white"><i class="fas fa-envelope"></i> email@example.com</a>
                         </div>
+                        {%endfor%}
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-6 mb-4">
                     <h4>Information</h4>
                     <ul class="nav-list">
-                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">+</a></li>
                         <li><a href="#" class="text-white">Contact Us</a></li>
                         <li><a href="#" class="text-white">Privacy Policy</a></li>
                         <li><a href="#" class="text-white">Terms & Conditions</a></li>
@@ -283,7 +293,7 @@
                     <ul class="nav-list">
                         <li><a href="#" class="text-white">My Account</a></li>
                         <li><a href="#" class="text-white">Order History</a></li>
-                        <li><a href="#" class="text-white">Wish List</a></li>
+                        <li><a href="{%url 'wishList'%}" class="text-white">Wish List</a></li>
                         <li><a href="#" class="text-white">Newsletter</a></li>
                     </ul>
                 </div>

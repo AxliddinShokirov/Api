@@ -6,4 +6,5 @@ urlpatterns = [
     path('authentication/', include('Goods.authentication.urls')),
     path('back-office/', include('Goods.back-office.urls')),
     path('user/', include('Goods.user.urls')), 
+    path('banner/', include('Goods.banner.urls')),
 ]

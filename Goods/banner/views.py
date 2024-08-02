@@ -7,7 +7,7 @@ def listBanner(request):
     context = {}
     context['queryset'] = queryset
 
-    return render(request, 'back-office/banner/list.html', context)
+    return render(request, 'banner/list.html', context)
 
 
 def detailBanner(request, id):
@@ -15,7 +15,7 @@ def detailBanner(request, id):
     context = {}
     context['queryset'] = queryset
 
-    return render(request, 'back-office/banner/detail.html', context)
+    return render(request, 'banner/detail.html', context)
 
 
 def createBanner(request):
@@ -26,7 +26,7 @@ def createBanner(request):
             img = request.FILES.get('image')
         )
         return redirect('listBanner')
-    return render(request, 'back-office/banner/create.html')
+    return render(request, 'banner/create.html')
 
 
 def updateBanner(request, id):
@@ -48,7 +48,7 @@ def updateBanner(request, id):
         data.save()
         return redirect('listBanner')
     
-    return render(request, 'back-office/banner/update.html', context)
+    return render(request, 'banner/update.html', context)
 
 
 
