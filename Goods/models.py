@@ -19,6 +19,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    @property
+    def Product(self):
+        return Product.objects.filter(category=self)
 
 
 class Product(models.Model):

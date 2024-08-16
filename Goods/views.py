@@ -3,7 +3,6 @@ from . import models
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
-
 def paginator_page(data, num, request):
     paginator = Paginator(data.order_by('-id'), num)
     pages = request.GET.get('page')
