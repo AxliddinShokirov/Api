@@ -27,4 +27,34 @@ class ProductDetailSerializer(serializers.ModelSerializer):
         model = Product
         fields =['id', 'name', 'category', ]
 
+class CartDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = ['id', 'author']
+        depth = 1
+
+class WishlistListSerializer(serializers.ModelSerializer):
+    product=ProductListSerializer(read_only = True)
+    class Meta:
+        model =WishList
+        fields =[ 'id','product', 'user']
+        
+class ProductEnterListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductEnter
+        fields = '__all__'
+    
+class ProductEnterDetailSerializer(serializers.ModelSerializer):
+    product=ProductListSerializer(read_only = True)
+    class Meta:
+        model = ProductEnter
+        fields=['id', 'quantity', 'product']    
+
+
+
+
+
+       
+      
+
 

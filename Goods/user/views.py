@@ -3,14 +3,21 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from Goods import models
 
-
 def myCart(request):
-    cart = models.Cart.objects.get_or_create(author=request.user, is_active=True)
-    cartProduct = models.CartProduct.objects.filter(cart=cart)
-    context = {}
-    context['cart']=cart
-    context['cartpro']=cartProduct
+    # Unpack the tuple returned by get_or_create
+    cart, created = models.Cart.objects.get_or_create(author=request.user, is_active=True)
+    
+    # Filter CartProduct based on the Cart object
+    cartProducts = models.CartProduct.objects.filter(cart=cart)
+    
+    # Prepare context
+    context = {
+        'cart': cart,
+        'cartpro': cartProducts
+    }
+    
     return render(request, 'user/detail.html', context)
+
 
 
 def addProductToCart(request, id):
@@ -95,14 +102,20 @@ def CreateOrder(request, id):
 def wishList(request):
     wish_list = models.WishList.objects.filter(user=request.user)
     data = []
+    
     for wish in wish_list:
-        a = models.ProductImg.objects.get(product = wish.product)
-        data.append(a)
-    context = {}
+        # Use filter to handle multiple images
+        product_images = models.ProductImg.objects.filter(product=wish.product)
+        data.append(product_images)
+    
+    # Prepare combined data
     combined = zip(wish_list, data)
-    context['combined']= combined
+    context = {
+        'combined': combined
+    }
 
     return render(request, 'user/wishList.html', context)
+
 
 
 

@@ -91,8 +91,8 @@ class Order(models.Model):
 class ProductEnter(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='entries')
     quantity = models.IntegerField()
-    old_quantity = models.IntegerField(blank=True, null=True)  # Allow null for new instances
-    date = models.DateTimeField(auto_now_add=True)  # Automatically set on creation
+    old_quantity = models.IntegerField(blank=True, null=True) 
+    date = models.DateTimeField(auto_now_add=True)  
     description = models.TextField(blank=True)
 
     def __str__(self):
@@ -110,7 +110,7 @@ class ProductEnter(models.Model):
                     self.product.quantity += quantity_diff
                     self.old_quantity = previous_entry.quantity
                 except ObjectDoesNotExist:
-                    # Handle case where the entry doesn't exist
+                
                     pass
             self.product.save()
             super().save(*args, **kwargs)
