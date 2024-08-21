@@ -16,5 +16,9 @@ urlpatterns = [
     path('ProductEnterList/', views. ProductEnteredSerializer.as_view()) ,
     path('register_user/', views.register_user),
     path('log_out/', views.log_out),
+    path('info/', views.InfoDetailSerializer.as_view()) ,
+    path('info/<int:pk>/', views.InfoDetailSerializer.as_view()),
+    path('contact/', views.ContacListSerializer.as_view),
+    path('contact/<int:pk>/', views. ContactDetailSerializer.as_view())
    
                 ]

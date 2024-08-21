@@ -49,7 +49,21 @@ class ProductEnterDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductEnter
         fields=['id', 'quantity', 'product']    
+class InfoDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Info
+        fields = '__all__'
 
+class ContactListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = '__all__'
+
+        
+class ContactDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields =['id', 'phone', 'telegram', 'facebook',]
 
 
 

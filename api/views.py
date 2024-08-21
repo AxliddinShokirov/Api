@@ -35,6 +35,7 @@ class WishListSerializer(generics.ListCreateAPIView):
     serializer_class =WishlistListSerializer
     queryset = WishList.objects.all()
 
+
 class ProductEnteredSerializer(generics.ListCreateAPIView):
     serializer_class = ProductEnterDetailSerializer
     queryset = ProductEnter.objects.all()
@@ -44,12 +45,21 @@ class ProductEnteredSerializer(generics.ListCreateAPIView):
 class ProductEnterDetailSerializer (generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProductEnterDetailSerializer
     queryset = ProductEnter.objects.all()
+
+
+class InfoDetailSerializer(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = InfoDetailSerializer
+    queryset = Info.objects.all()
+
+
+class ContacListSerializer(generics.ListCreateAPIView):
+     serializer_class = ContactListSerializer
+     queryset = Contact.objects.all()
+
+class ContactDetailSerializer(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ContactDetailSerializer
+    queryset = Contact.objects.all()
     
-
-
-    
-
-
 
 @api_view(['POST'])
 def log_in(request):
